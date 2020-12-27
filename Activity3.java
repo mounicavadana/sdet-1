@@ -1,28 +1,30 @@
-package com.sdet.JavaActivity3;
+package com.sdet.SeleniumProject;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 
 public class Activity3 {
-	
-	    public static void main(String args[]) {
-	        double seconds = 1000000000;
+	 WebDriver driver;
+	    
+	  
 
-	        double EarthSeconds = 31557600;
-	        double MercurySeconds = 0.2408467;
-	        double VenusSeconds = 0.61519726;
-	        double MarsSeconds = 1.8808158;
-	        double JupiterSeconds = 11.862615;
-	        double SaturnSeconds = 29.447498;
-	        double UranusSeconds = 84.016846;
-	        double NeptuneSeconds = 164.79132;
-	        
-	        System.out.println("Age on Mercury: " + seconds / EarthSeconds / MercurySeconds);
-	        System.out.println("Age on Venus: " + seconds / EarthSeconds / VenusSeconds);
-	        System.out.println("Age on Earth: " + seconds / EarthSeconds);
-	        System.out.println("Age on Mars: " + seconds / EarthSeconds / MarsSeconds);
-	        System.out.println("Age on Jupiter: " + seconds / EarthSeconds / JupiterSeconds);
-	        System.out.println("Age on Saturn: " + seconds / EarthSeconds / SaturnSeconds);
-	        System.out.println("Age on Uranus: " + seconds / EarthSeconds / UranusSeconds);
-	        System.out.println("Age on Neptune: " + seconds / EarthSeconds / NeptuneSeconds);
-	    }
-	
-
+	    @Test
+	    public void exampleTestCase() {
+	    	driver = new FirefoxDriver();
+	        driver.get("http://alchemy.hguy.co/orangehrm");
+	        WebElement firstName = driver.findElement(By.id("txtUsername"));
+	        WebElement lastName = driver.findElement(By.id("txtPassword"));
+	        firstName.sendKeys("orange");
+	        lastName.sendKeys("orangepassword123");
+	        driver.findElement(By.id("btnLogin")).click();
+	        String homeTitle=driver.getTitle();
+	        String homeUrl= driver.getCurrentUrl();
+	        Assert.assertEquals(homeTitle, "OrangeHRM");
+	        Assert.assertEquals(homeUrl, "http://alchemy.hguy.co:8080/orangehrm/symfony/web/index.php/dashboard");
+	        driver.quit();
+}
 }
