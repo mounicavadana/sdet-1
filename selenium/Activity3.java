@@ -1,43 +1,36 @@
-package com.sdet.Selenium.Activity1;
+package com.sdet.testNGTests;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.Assert;
+import org.testng.annotations.*;
+import org.testng.annotations.Test;
 
 public class Activity3 {
-	
-	    public static void main(String[] args) {
+	    WebDriver driver;
 
-	        // Create a new instance of the Firefox driver
-	        WebDriver driver = new FirefoxDriver();
-	    
-	        //Open the browser
-	        driver.get("https://www.training-support.net/selenium/simple-form");
-	        
-	        //Find the page title and print it
-	        String pageTitle = driver.getTitle();
-	        System.out.println(pageTitle);
-	        
-	        //Find the input fields
-	        WebElement firstName = driver.findElement(By.id("firstName"));
-	        WebElement lastName = driver.findElement(By.id("lastName"));
-	        //Enter text
-	        firstName.sendKeys("Saahil");
-	        lastName.sendKeys("Sharma");
-	        
-	        //Enter the email
-	        driver.findElement(By.id("email")).sendKeys("test@example.com");
-	        
-	        //Enter the contact number
-	        driver.findElement(By.id("number")).sendKeys("1234567890");
-	        
-	        //Click Submit
-	        driver.findElement(By.cssSelector(".ui.green.button")).click();
-	    
-	        //Close the browser
+	    @BeforeClass
+	    public void beforeClass() {
+	        driver = new FirefoxDriver();
+	        driver.get("https://www.training-support.net/selenium/login-form");
+	    }
+
+	    @Test
+	    public void loginTest() {
+	        WebElement username = driver.findElement(By.id("username"));
+	        WebElement password = driver.findElement(By.id("password"));
+	        username.sendKeys("admin");
+	        password.sendKeys("password");
+	        driver.findElement(By.xpath("//button[text()='Log in']")).click();
+	        String loginMessage = driver.findElement(By.id("action-confirmation")).getText();
+	        Assert.assertEquals("Welcome Back, admin", loginMessage);
+	    }
+
+	    @AfterClass
+	    public void afterClass() {
 	        driver.close();
 	    }
-	}
-
-
+	
+}
