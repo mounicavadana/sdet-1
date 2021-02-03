@@ -1,0 +1,62 @@
+[
+  {
+    "line": 2,
+    "elements": [
+      {
+        "start_timestamp": "2021-01-21T04:44:02.482Z",
+        "line": 4,
+        "name": "Testing Login",
+        "description": "",
+        "id": "login-test;testing-login",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 16208775600,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "Go to Vacancy portal",
+            "match": {
+              "location": "stepDefinition.HRMActivity1.wpadminPage()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 5057677100,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "Close the Vacancy Browser",
+            "match": {
+              "location": "stepDefinition.CloseBrowser.closeVacancyBrowser()"
+            },
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@HRMActivity1"
+          }
+        ]
+      }
+    ],
+    "name": "Login Test",
+    "description": "",
+    "id": "login-test",
+    "keyword": "Feature",
+    "uri": "file:src/test/java/features/HRMActivity1.feature",
+    "tags": [
+      {
+        "name": "@HRMActivity1",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 1
+        }
+      }
+    ]
+  }
+]

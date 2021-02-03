@@ -1,0 +1,77 @@
+[
+  {
+    "line": 2,
+    "elements": [
+      {
+        "line": 4,
+        "name": "Login into the CRM Site",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 5,
+            "name": "Navigate to Alchemy CRM site and login",
+            "match": {},
+            "keyword": "Given "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2021-01-25T10:52:34.961Z",
+        "line": 9,
+        "name": "Counting Dashlets",
+        "description": "",
+        "id": "crm-site;counting-dashlets",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 10,
+            "name": "Print count of dashlets",
+            "match": {},
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 11,
+            "name": "Close the Browser",
+            "match": {},
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@CRM"
+          },
+          {
+            "name": "@Activity1"
+          }
+        ]
+      }
+    ],
+    "name": "CRM Site",
+    "description": "",
+    "id": "crm-site",
+    "keyword": "Feature",
+    "uri": "file:src/test/java/Features/CRM.feature",
+    "tags": [
+      {
+        "name": "@CRM",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 1
+        }
+      }
+    ]
+  }
+]
